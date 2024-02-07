@@ -6,8 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FA5EDBC6-DC09-4EE1-8905-35F6E61E5A45}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1BBBB1DF-910B-485C-9C99-B430A151B5BC}"
+	ProjectSection(SolutionItems) = preProject
+		BearerToken.txt = BearerToken.txt
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketseatAuction.API", "src\RocketseatAuction.API\RocketseatAuction.API.csproj", "{C318B695-2F54-4682-A5FF-395877ED042B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketseatAuction.API", "src\RocketseatAuction.API\RocketseatAuction.API.csproj", "{C318B695-2F54-4682-A5FF-395877ED042B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

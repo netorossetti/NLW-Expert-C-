@@ -1,6 +1,11 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using RocketseatAuction.API.Contracts;
 using RocketseatAuction.API.Filters;
+using RocketseatAuction.API.Repositories;
+using RocketseatAuction.API.Repositories.DataAccess;
 using RocketseatAuction.API.Services;
+using RocketseatAuction.API.UseCases.Auctions.GetCurrent;
 using RocketseatAuction.API.UseCases.Offers.CreateOffer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,9 +41,21 @@ builder.Services.AddSwaggerGen(options => {
     });
 });
 
+// Injeção de dependencias
 builder.Services.AddScoped<AuthenticationUserAttribute>();
 builder.Services.AddScoped<LoggedUser>();
 builder.Services.AddScoped<CreateOfferUseCase>();
+builder.Services.AddScoped<GetCurrentAuctionUseCase>();
+
+// Injeção de dependencias Repositorios
+builder.Services.AddScoped<IAuctionRepository, AuctionRopository>();
+builder.Services.AddScoped<IOfferRepository, OfferRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// Injeção de dependencias Contexto
+builder.Services.AddDbContext<RockeseatAuctionDbContext>(options => {
+    options.UseSqlite(@"Data Source=C:\VisualCode\rocketseat\NWL-Expert-CSharp\db\leilaoDbNLW.db");
+});
 
 builder.Services.AddHttpContextAccessor();
 
