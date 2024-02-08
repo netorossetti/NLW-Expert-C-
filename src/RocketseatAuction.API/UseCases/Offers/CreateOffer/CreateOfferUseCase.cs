@@ -6,9 +6,9 @@ using RocketseatAuction.API.Services;
 namespace RocketseatAuction.API.UseCases.Offers.CreateOffer;
 
 public class CreateOfferUseCase {
-    private readonly LoggedUser _loogedUser;
+    private readonly ILoggedUser _loogedUser;
     private readonly IOfferRepository _offerRepository;
-    public CreateOfferUseCase(LoggedUser loogedUser, IOfferRepository offerRepository) {  
+    public CreateOfferUseCase(ILoggedUser loogedUser, IOfferRepository offerRepository) {  
         _loogedUser = loogedUser;
         _offerRepository = offerRepository;
     }
